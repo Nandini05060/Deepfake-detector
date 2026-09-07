@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Data & Datasets
+Final Dataset/
+data/crops/
+data/processed/
+data/raw/
+data/external/*
+!data/external/.gitkeep
+
+# Checkpoints (weights)
+checkpoints/*.pt
+!checkpoints/.gitkeep
+
+# IDE & Logs
+.vscode/
+.idea/
+*.log
+.DS_Store
+
+# Node / App
+node_modules/
+dist/
+build/

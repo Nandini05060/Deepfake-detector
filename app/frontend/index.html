@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LX-DFD — Research Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand-header">
+        <div class="brand-logo">LX</div>
+        <div>
+          <div class="brand-title">LX-DFD</div>
+          <div style="font-size: 10px; color: #94a3b8;">Spatial-Frequency Lab</div>
+        </div>
+      </div>
+      
+      <ul class="nav-list">
+        <li class="nav-item active" data-page="page-overview">
+          <span class="nav-icon">📊</span> 1. Research Overview
+        </li>
+        <li class="nav-item" data-page="page-dataset">
+          <span class="nav-icon">📁</span> 2. Dataset Audit
+        </li>
+        <li class="nav-item" data-page="page-architecture">
+          <span class="nav-icon">🧠</span> 3. Model Architecture
+        </li>
+        <li class="nav-item" data-page="page-training">
+          <span class="nav-icon">📈</span> 4. Training Progress
+        </li>
+        <li class="nav-item" data-page="page-comparison">
+          <span class="nav-icon">⚔️</span> 5. Model Comparison
+        </li>
+        <li class="nav-item" data-page="page-generalization">
+          <span class="nav-icon">🌐</span> 6. Generalization Gap
+        </li>
+        <li class="nav-item" data-page="page-robustness">
+          <span class="nav-icon">🛡️</span> 7. Robustness Benchmark
+        </li>
+        <li class="nav-item" data-page="page-explainability">
+          <span class="nav-icon">🔍</span> 8. Explainability Studio
+        </li>
+        <li class="nav-item" data-page="page-errors">
+          <span class="nav-icon">⚠️</span> 9. Error Analysis
+        </li>
+        <li class="nav-item" data-page="page-conclusion">
+          <span class="nav-icon">🏆</span> 10. Research Conclusion
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="main-content" id="main-content">
+      <!-- Dynamic Pages Injected via app.js -->
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
