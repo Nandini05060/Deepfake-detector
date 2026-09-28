@@ -209,11 +209,14 @@ def get_robustness():
 
 @app.post("/predict")
 async def predict_image(file: UploadFile = File(...), model_name: str = "lxfd"):
-    if not file.content_type.startswith("image/"):
+    if file.content_type and not file.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="Uploaded file must be an image.")
         
-    contents = await file.read()
-    pil_img = Image.open(io.BytesIO(contents)).convert('RGB')
+    try:
+        contents = await file.read()
+        pil_img = Image.open(io.BytesIO(contents)).convert('RGB')
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Invalid image file: {str(e)}")
     
     mean = [0.485, 0.456, 0.406]
     std = [0.229, 0.224, 0.225]
@@ -241,11 +244,15 @@ async def predict_image(file: UploadFile = File(...), model_name: str = "lxfd"):
 
 @app.post("/explain")
 async def explain_image(file: UploadFile = File(...)):
-    if not file.content_type.startswith("image/"):
+    if file.content_type and not file.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="File must be an image.")
         
-    contents = await file.read()
-    pil_img = Image.open(io.BytesIO(contents)).convert('RGB')
+    try:
+        contents = await file.read()
+        pil_img = Image.open(io.BytesIO(contents)).convert('RGB')
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Invalid image file: {str(e)}")
+
     orig_np = np.array(pil_img)
     resized_rgb = cv2.resize(orig_np, (224, 224))
 
